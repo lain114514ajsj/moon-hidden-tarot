@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生日数字 · 月隐 Tarot</title>
+  <meta name="description" content="月隐 Tarot 生日数字：输入出生日期，查看计算过程与生命数字解读。" />
+  <meta name="theme-color" content="#F5F4F0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">☾</span>
+        <span class="brand-name">月隐 Tarot</span>
+      </a>
+      <button class="nav-toggle" aria-label="打开菜单">☰</button>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">首页</a>
+        <a href="tarot.html">塔罗占卜</a>
+        <a href="birthday.html" class="active">生日数字</a>
+        <a href="about.html">关于我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container container--narrow">
+      <header class="page-head">
+        <h1 class="page-title">生日数字</h1>
+        <p class="page-subtitle">输入出生日期，看看与你相伴的数字象征。</p>
+      </header>
+
+      <section class="surface">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="birthDate">出生日期</label>
+            <input type="date" id="birthDate" class="input" min="1900-01-01" />
+          </div>
+          <button id="calcBtn" class="btn btn-primary">计算生命数字</button>
+        </div>
+
+        <p id="error" class="error" role="alert"></p>
+
+        <div id="result" class="result-box"></div>
+      </section>
+
+      <p class="disclaimer">
+        <strong>温馨提示：</strong>
+        生日数字是基于数字象征的娱乐性解读，并非科学预测。计算中的主数 11、22 会保留不继续化简。
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-brand">☾ 月隐 Tarot</p>
+      <p>塔罗与数字解读仅用于自我探索与娱乐，不替代专业意见，不保证预测未来。</p>
+      <p class="footer-note">© <span class="year">2026</span> 月隐 Tarot</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/birthday.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

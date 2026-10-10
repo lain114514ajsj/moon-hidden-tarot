@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>塔罗占卜 · 月隐 Tarot</title>
+  <meta name="description" content="月隐 Tarot 塔罗占卜：支持单张抽牌与过去、现在、未来三张牌阵。" />
+  <meta name="theme-color" content="#F5F4F0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">☾</span>
+        <span class="brand-name">月隐 Tarot</span>
+      </a>
+      <button class="nav-toggle" aria-label="打开菜单">☰</button>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">首页</a>
+        <a href="tarot.html" class="active">塔罗占卜</a>
+        <a href="birthday.html">生日数字</a>
+        <a href="about.html">关于我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title">塔罗占卜</h1>
+        <p class="page-subtitle">静下心来，写下你此刻最想弄清楚的事，再凭直觉选牌。</p>
+      </header>
+
+      <!-- 第一步：写下问题 + 选择牌阵 -->
+      <section class="ask-panel" id="askStep">
+        <label class="ask-title" for="questionInput">此刻，你最想弄明白的是什么？</label>
+        <textarea id="questionInput" class="ask-input" rows="3"
+          placeholder="把你想问的事情写下来，不用刻意组织语言……"></textarea>
+        <p class="ask-error" id="askError" role="alert"></p>
+
+        <fieldset class="fieldset">
+          <legend>选择牌阵</legend>
+          <div class="chip-group">
+            <label class="chip">
+              <input type="radio" name="mode" value="single" checked />
+              <span>单张占卜 · 选 1 张</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="mode" value="three" />
+              <span>三张牌阵 · 过去 / 现在 / 未来</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="ask-actions">
+          <button type="button" id="startBtn" class="btn btn-primary">开始解读</button>
+        </div>
+        <p class="ask-note">你的问题只会留在本机，不会发送到任何服务器。</p>
+      </section>
+
+      <!-- 第二步：抽牌与解读 -->
+      <section class="draw-panel" id="drawStep" hidden>
+        <div class="question-bar">
+          <p class="question-text" id="questionShown"></p>
+          <button type="button" id="editQuestionBtn" class="btn btn-quiet">返回修改问题</button>
+        </div>
+
+        <div class="deck-surface">
+          <p class="draw-hint" id="drawHint">请凭直觉选择属于你的牌。</p>
+          <div class="deck-stage" id="deckStage"></div>
+        </div>
+
+        <div class="draw-actions">
+          <button type="button" id="resetBtn" class="btn">重新抽牌</button>
+          <button type="button" id="revealBtn" class="btn btn-primary" disabled>揭开命运</button>
+        </div>
+
+        <h2 class="sr-only">解读结果</h2>
+        <div id="reading" class="reading"></div>
+      </section>
+
+      <p class="disclaimer">
+        <strong>温馨提示：</strong>
+        塔罗解读用于自我探索和娱乐，不应替代专业意见，也不保证预测未来。请以理性、开放的心态看待结果。
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-brand">☾ 月隐 Tarot</p>
+      <p>塔罗与数字解读仅用于自我探索与娱乐，不替代专业意见，不保证预测未来。</p>
+      <p class="footer-note">© <span class="year">2026</span> 月隐 Tarot</p>
+    </div>
+  </footer>
+
+  <!-- 点击牌面后弹出的大图详情 -->
+  <div id="cardModal" class="modal" hidden>
+    <div class="modal-panel">
+      <button id="modalClose" class="modal-close" type="button" aria-label="关闭">×</button>
+      <div class="modal-card">
+        <img id="modalImg" class="card-img" src="" alt="" />
+      </div>
+      <div class="modal-info">
+        <h3 id="modalName"></h3>
+        <div id="modalOri" class="orientation"></div>
+        <p id="modalMeaning"></p>
+        <p id="modalAdvice"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cards-meaning.js"></script>
+  <script src="js/reading.js"></script>
+  <script src="js/card-art.js"></script>
+  <script src="js/tarot.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
